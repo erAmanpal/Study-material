@@ -39,7 +39,18 @@ b = svm_model.intercept_[0] #b is the bias/intercept term
 x_vals = np.linspace(X_scaled[:, 0].min(), X_scaled[:, 0].max(), 100)
 # This is the key step: solving the decision boundary equation for y.
 y_vals = -(w[0] * x_vals + b) / w[1]
-plt.plot(x_vals, y_vals, label='Decision Boundary')
-plt.legend()
 
+# Margins: ±1 from decision boundary
+margin = 1 / np.linalg.norm(w)
+y_margin_up = y_vals + margin
+y_margin_down = y_vals - margin
+
+plt.plot(x_vals, y_vals, 'k-', label='Decision Boundary')
+plt.plot(x_vals, y_margin_up, 'k--', label='Margin')
+plt.plot(x_vals, y_margin_down, 'k--')
+
+plt.xlabel("Feature 1 (Size, scaled)")
+plt.ylabel("Feature 2 (Color, scaled)")
+plt.legend()
+plt.grid(True)
 plt.show()

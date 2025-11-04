@@ -1,0 +1,26 @@
+1. Create a Virtual Environment
+
+> python -m venv venv
+
+2. Activate the Environment
+
+> venv\Scripts\activate
+
+3. Install Packages Inside It
+ 
+> pip install numpy matplotlib pandas
+
+4. (Optional) Save Dependencies
+
+> pip freeze > requirements.txt
+
+> pip install -r requirements.txt
+
+5. Deactivate the Environment
+
+> deactivate
+
+
+Use venv per project. Never mix project dependencies.
+
+Avoid global pip install. Always activate the env first.
